@@ -5,13 +5,16 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import ShopppingPage from "./Routes/ShoppingPage";
-import About from "./Routes/About";
+import ProductsStore from "./Components/Routes/ProductsStore";
+import About from "./Components/Routes/About";
+import Home from "./Components/Routes/Home";
 
 const routeDefinitions = createRoutesFromElements(
   <Route>
-    <Route path="/" element={<About />}></Route>
-    <Route path="/products" element={<ShopppingPage />}></Route>
+    <Route path="/About" element={<About />}></Route>
+    <Route path="/Products" element={<ProductsStore />}></Route>
+    <Route path="/index" element={<Home />}></Route>
+    <Route path="/" element={<Home />}></Route>
   </Route>
 );
 // const router = createBrowserRouter([{ path: "/", element: <ShopppingPage /> }]);

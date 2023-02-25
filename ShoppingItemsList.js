@@ -125,8 +125,8 @@ const ShoppingItemsList = (props) => {
 
   return (
     <>
-      <h1 className={classes["shopping-title"]}>THE GENERICS</h1>
-      <h2 className={classes.list}>Shopping Items</h2>
+      <div className={classes["shopping-title"]}>THE GENERICS</div>
+      <div className={classes.list}>Shopping Items</div>
       {items}
     </>
   );

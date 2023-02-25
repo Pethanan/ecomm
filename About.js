@@ -1,10 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import aboutImg from "../Assests/BandMembers.png";
+import aboutImg from "../../Assests/BandMembers.png";
+import NavbarHeader from "../NavBar/NavbarHeader";
 
 const About = () => {
   return (
     <>
+      <NavbarHeader></NavbarHeader>
       <h1>About</h1>
       <img
         src={aboutImg}

@@ -1,0 +1,33 @@
+.nav-links {
+  font-size: 26px;
+}
+.main-container {
+  margin-top: 70px;
+}
+
+.row-section {
+  margin-bottom: 50px;
+}
+
+.item-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.img-container {
+  text-align: center;
+}
+
+.item-img {
+  width: 55%;
+  height: auto;
+}
+
+.item-img:hover {
+  width: 65%;
+  height: auto;
+  overflow: hidden;
+}
+.navs {
+  font-size: 26px;
+}

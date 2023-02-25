@@ -1,0 +1,10 @@
+.order-btn {
+  width: 170px;
+  margin: auto;
+  margin-top: 15px;
+  font-weight: 400;
+}
+
+.order-btn:hover {
+  background-color: rgba(0, 132, 255, 0.932);
+}

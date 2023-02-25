@@ -1,37 +1,34 @@
 import React from "react";
+import AddToCartButton from "./AddToCartButton";
 import classes from "./ShoppingItemsList.module.css";
-import { Navbar, Container, Nav, Col, Row, Button } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 
 const productsArr = [
   {
+    id: Math.round(Math.random()),
     title: "Colors",
-
     price: 100,
-
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
   },
 
   {
+    id: Math.round(Math.random()),
     title: "Black and white Colors",
-
     price: 50,
-
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
   },
 
   {
+    id: Math.round(Math.random()),
     title: "Yellow and Black Colors",
-
     price: 70,
-
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
   },
 
   {
+    id: Math.round(Math.random()),
     title: "Blue Color",
-
     price: 100,
-
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
   },
 ];
@@ -54,12 +51,10 @@ const ShoppingItemsList = (props) => {
               />
             </div>
             <h4 className={classes["item-amount"]}>${productsArr[0].price}</h4>
-            <Button
-              as="input"
-              type="submit"
-              value="Add to Cart"
-              className={classes["order-btn"]}
-            />
+            <AddToCartButton
+              item={productsArr[0]}
+              addToCartHandler={props.addToCartHandler}
+            ></AddToCartButton>
           </div>
         </Col>
         <Col>
@@ -76,12 +71,10 @@ const ShoppingItemsList = (props) => {
               />
             </div>
             <h4 className={classes["item-amount"]}>${productsArr[1].price}</h4>
-            <Button
-              as="input"
-              type="submit"
-              value="Add to Cart"
-              className={classes["order-btn"]}
-            />
+            <AddToCartButton
+              item={productsArr[1]}
+              addToCartHandler={props.addToCartHandler}
+            ></AddToCartButton>
           </div>
         </Col>
       </Row>
@@ -100,12 +93,10 @@ const ShoppingItemsList = (props) => {
               />
             </div>
             <h4 className={classes["item-amount"]}>${productsArr[2].price}</h4>
-            <Button
-              as="input"
-              type="submit"
-              value="Add to Cart"
-              className={classes["order-btn"]}
-            />
+            <AddToCartButton
+              item={productsArr[2]}
+              addToCartHandler={props.addToCartHandler}
+            ></AddToCartButton>
           </div>
         </Col>
         <Col>
@@ -122,12 +113,10 @@ const ShoppingItemsList = (props) => {
               />
             </div>
             <h4 className={classes["item-amount"]}>${productsArr[3].price}</h4>
-            <Button
-              as="input"
-              type="submit"
-              value="Add to Cart"
-              className={classes["order-btn"]}
-            />
+            <AddToCartButton
+              item={productsArr[3]}
+              addToCartHandler={props.addToCartHandler}
+            ></AddToCartButton>
           </div>
         </Col>
       </Row>
@@ -136,30 +125,6 @@ const ShoppingItemsList = (props) => {
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#pricing" className={classes.navs}>
-                Pricing
-              </Nav.Link>
-              <Nav.Link href="#features" className={classes.navs}>
-                Features
-              </Nav.Link>
-              <Nav.Link href="#pricing" className={classes.navs}>
-                Pricing
-              </Nav.Link>
-            </Nav>
-            <Nav>
-              <Button className={classes.navs} onClick={props.cartShowHandler}>
-                Cart
-              </Button>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      );
       <h1 className={classes["shopping-title"]}>THE GENERICS</h1>
       <h2 className={classes.list}>Shopping Items</h2>
       {items}

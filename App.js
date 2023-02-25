@@ -1,66 +1,24 @@
-import React, { useState } from "react";
-import "./App.css";
-import ShoppingItemsList from "./ShoppingMenu/ShoppingItemsList";
-import NavbarHeader from "./Components/NavBar/NavbarHeader";
-import Cart from "./Components/Cart/Cart";
+import React from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
+import ShopppingPage from "./Routes/ShoppingPage";
+import About from "./Routes/About";
 
-const cartElements = [
-  {
-    title: "Colors",
+const routeDefinitions = createRoutesFromElements(
+  <Route>
+    <Route path="/" element={<About />}></Route>
+    <Route path="/products" element={<ShopppingPage />}></Route>
+  </Route>
+);
+// const router = createBrowserRouter([{ path: "/", element: <ShopppingPage /> }]);
 
-    price: 100,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-    quantity: 2,
-  },
-
-  {
-    title: "Black and white Colors",
-
-    price: 50,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-    quantity: 3,
-  },
-
-  {
-    title: "Yellow and Black Colors",
-
-    price: 70,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-    quantity: 1,
-  },
-];
-
+const router = createBrowserRouter(routeDefinitions);
 function App() {
-  const [isCartShowButtoClicked, setIsCartShowButtoClicked] = useState(false);
-
-  const [addedCartItems, setAddedCartItems] = useState(cartElements);
-
-  const cartShowHandler = () => {
-    setIsCartShowButtoClicked((prev) => !prev);
-  };
-
-  const addToCartHandler = (item) => {
-    console.log("clicked");
-    setAddedCartItems([...addedCartItems, item]);
-    console.log(addedCartItems);
-  };
-
-  return (
-    <React.Fragment>
-      <NavbarHeader cartShowHandler={cartShowHandler}></NavbarHeader>
-      <ShoppingItemsList
-        cartShowHandler={cartShowHandler}
-        addToCartHandler={addToCartHandler}
-      />
-      {isCartShowButtoClicked && <Cart cartItems={addedCartItems}></Cart>}
-    </React.Fragment>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

@@ -12,13 +12,13 @@ const NavbarHeader = (props) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#pricing" className={classes["nav-links"]}>
-                Pricing
+                Home
               </Nav.Link>
-              <Nav.Link href="#features" className={classes["nav-links"]}>
-                Features
+              <Nav.Link href="/Products" className={classes["nav-links"]}>
+                Store
               </Nav.Link>
-              <Nav.Link href="#pricing" className={classes["nav-links"]}>
-                Pricing
+              <Nav.Link href="/" className={classes["nav-links"]}>
+                About
               </Nav.Link>
             </Nav>
             <Nav>

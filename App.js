@@ -8,10 +8,13 @@ import {
 import ProductsStore from "./Components/Routes/ProductsStore";
 import About from "./Components/Routes/About";
 import Home from "./Components/Routes/Home";
+import Login from "./Components/Routes/Login";
 
 const routeDefinitions = createRoutesFromElements(
   <Route>
     <Route path="/About" element={<About />}></Route>
+    <Route path="/login" element={<Login />}></Route>
+
     <Route path="/Products" element={<ProductsStore />}></Route>
     <Route path="/index" element={<Home />}></Route>
     <Route path="/" element={<Home />}></Route>

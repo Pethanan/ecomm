@@ -2,6 +2,7 @@ import React from "react";
 import NavbarCartButton from "./NavbarCartButton";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import classes from "./NavbarHeader.module.css";
+import ProductsStore from "../Routes/ProductsStore";
 
 const NavbarHeader = (props) => {
   return (
@@ -11,14 +12,17 @@ const NavbarHeader = (props) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#pricing" className={classes["nav-links"]}>
+              <Nav.Link href="/index" className={classes.navlinks}>
                 Home
               </Nav.Link>
-              <Nav.Link href="/Products" className={classes["nav-links"]}>
+              <Nav.Link href="/Products" className={classes.navlinks}>
                 Store
               </Nav.Link>
-              <Nav.Link href="/" className={classes["nav-links"]}>
+              <Nav.Link href="/About" className={classes.navlinks}>
                 About
+              </Nav.Link>
+              <Nav.Link href="/Login" className={classes.navlinks}>
+                Login
               </Nav.Link>
             </Nav>
             <Nav>

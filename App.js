@@ -1,30 +1,37 @@
-import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  createRoutesFromElements,
-  Route,
-} from "react-router-dom";
+import React, { useContext } from "react";
 import ProductsStore from "./Components/Routes/ProductsStore";
 import About from "./Components/Routes/About";
 import Home from "./Components/Routes/Home";
 import Login from "./Components/Routes/Login";
-
-const routeDefinitions = createRoutesFromElements(
-  <Route>
-    <Route path="/About" element={<About />}></Route>
-    <Route path="/login" element={<Login />}></Route>
-
-    <Route path="/Products" element={<ProductsStore />}></Route>
-    <Route path="/index" element={<Home />}></Route>
-    <Route path="/" element={<Home />}></Route>
-  </Route>
-);
-// const router = createBrowserRouter([{ path: "/", element: <ShopppingPage /> }]);
-
-const router = createBrowserRouter(routeDefinitions);
+import AuthCtx from "./Store/auth-ctx";
+import { Route, Redirect, Switch } from "react-router-dom";
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  const authCtx = useContext(AuthCtx);
+
+  return (
+    <Switch>
+      <Route path="/About">
+        <About />
+      </Route>
+      <Route path="/login" element={<Login />}>
+        {!authCtx.isLoggedIn && <Login></Login>}
+        {authCtx.isLoggedIn && <Redirect to="/Products" />}
+      </Route>
+
+      <Route path="/Products">
+        {authCtx.isLoggedIn && <ProductsStore />}
+        {!authCtx.isLoggedIn && <Redirect to="/login" />}
+      </Route>
+
+      <Route path="/index">
+        <Home />
+      </Route>
+
+      <Route path="/" exact>
+        <Home />
+      </Route>
+    </Switch>
+  );
 }
 
 export default App;

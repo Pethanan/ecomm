@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import ShoppingItemsList from "../ShoppingMenu/ShoppingItemsList";
 import Cart from "../Cart/Cart";
 import NavbarHeader from "../NavBar/NavbarHeader";
+import { useContext } from "react";
+
+import AuthCtx from "../../Store/auth-ctx";
 
 const cartElements = [
   {
@@ -36,6 +39,7 @@ const cartElements = [
 ];
 
 function ProductsStore() {
+  const authCtx = useContext(AuthCtx);
   const [isCartShowButtoClicked, setIsCartShowButtoClicked] = useState(false);
 
   const [addedCartItems, setAddedCartItems] = useState(cartElements);
@@ -44,10 +48,20 @@ function ProductsStore() {
     setIsCartShowButtoClicked((prev) => !prev);
   };
 
-  const addToCartHandler = (item) => {
-    console.log("clicked");
+  const addToCartHandler = async (item) => {
+    await fetch(
+      `https://crudcrud.com/api/c3fb3f74b4664fc984c74a2a0afae50b/cart_maually`,
+      {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     setAddedCartItems([...addedCartItems, item]);
     console.log(addedCartItems);
+    console.log(authCtx.userMail);
   };
 
   return (

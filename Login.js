@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { useRef, useState } from "react";
-import { Container } from "react-bootstrap";
-import ProductsStore from "./ProductsStore";
+import { useRef } from "react";
+import { Container, Form } from "react-bootstrap";
 import AuthCtx from "../../Store/auth-ctx";
 import { Redirect } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const Login = () => {
   const emailRef = useRef();
@@ -46,22 +46,40 @@ const Login = () => {
 
   return (
     <>
-      <Container>
-        <div>
-          <form onSubmit={loginSubmitHandler}>
-            <h1>Welcome Back</h1>
-            <label>Email ID/User ID</label>
-            <br /> <br />
-            <input type="email" ref={emailRef}></input>
-            <br /> <br />
-            <label>Password</label>
-            <br /> <br />
-            <input type="password" ref={passwordRef}></input>
-            <br /> <br />
-            <button type="submit">Login</button>
-            <br /> <br />
-          </form>
-        </div>
+      <h2 style={{ textAlign: "center", margin: "60px", color: "#30827d" }}>
+        Welcome Back !
+      </h2>
+
+      <Container style={{ width: "600px" }}>
+        <Form onSubmit={loginSubmitHandler}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ fontWeight: "bold" }}>
+              Email ID/User ID
+            </Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              ref={emailRef}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label style={{ fontWeight: "bold" }}>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              ref={passwordRef}
+            />
+          </Form.Group>
+
+          <Button
+            variant="success"
+            type="submit"
+            style={{ fontWeight: "bold" }}
+          >
+            Submit
+          </Button>
+        </Form>
       </Container>
 
       {ctx.isLoggedIn && <Redirect to="/Products" />}

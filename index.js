@@ -6,13 +6,16 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import { AuthContextProvider } from "./Store/auth-ctx";
 import { BrowserRouter } from "react-router-dom";
+import { CartCtxProvider } from "./Store/cart-ctx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthContextProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <CartCtxProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </CartCtxProvider>
   </AuthContextProvider>
 );
 

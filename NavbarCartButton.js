@@ -1,12 +1,21 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import classes from "./NavbarCartButton.module.css";
 
 const NavbarCartButton = (props) => {
   return (
-    <Button className={classes["nav-btn"]} onClick={props.cartShowHandler}>
-      Cart
-    </Button>
+    <>
+      <Button
+        variant="primary"
+        style={{
+          fontSize: "20px",
+          fontWeight: "bolder",
+          padding: "2px 20px",
+        }}
+        onClick={props.cartShowHandler}
+      >
+        Cart
+      </Button>
+    </>
   );
 };
 

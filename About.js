@@ -1,19 +1,20 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import aboutImg from "../../Assests/BandMembers.png";
-import NavbarHeader from "../NavBar/NavbarHeader";
 
 const About = () => {
   return (
-    <>
-      <NavbarHeader></NavbarHeader>
-      <h1>About</h1>
-      <img
-        src={aboutImg}
-        alt="band members"
-        style={{ width: "20%", height: "auto" }}
-      />
-      <Container style={{ marginTop: "50px" }}>
+    <Container style={{ backgroundColor: "#d5f7f5", borderRadius: "10px" }}>
+      <h1 style={{ margin: "60px 0", paddingTop: "40px" }}>About Us</h1>
+      <Container>
+        <img
+          src={aboutImg}
+          alt="band members"
+          style={{ width: "20%", height: "auto", borderRadius: "20px" }}
+        />
+      </Container>
+
+      <Container style={{ marginTop: "50px", paddingBottom: "40px" }}>
         About Lorem ipsum carrots enhanced rebates. Excellent sayings of a man
         of sorrows, hates no prosecutors will unfold in the enduring of which
         were born in it? Often leads smallest mistake some pain main
@@ -36,7 +37,7 @@ const About = () => {
         of harsh condemn, we are accusing him? Him whom something large
         cisterns.
       </Container>
-    </>
+    </Container>
   );
 };
 

@@ -1,12 +1,16 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
 import { useContext } from "react";
 import CartItem from "./CartItem";
 import CartCtx from "../../Store/cart-ctx";
+import { showcartActions } from "../../Store/showCart";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartCtx);
+  const dispatch = useDispatch();
+
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
@@ -21,6 +25,11 @@ const Cart = (props) => {
       ))}
     </ul>
   );
+
+  const closeCartHandler = () => {
+    dispatch(showcartActions.closeCart());
+  };
+
   return (
     <Modal>
       <h1>Cart Items</h1>
@@ -30,7 +39,7 @@ const Cart = (props) => {
         <span>$ {cartCtx.totalAmount}</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={props.onCartClose}>
+        <button className={classes["button--alt"]} onClick={closeCartHandler}>
           Close
         </button>
         <button className={classes.button}>Order</button>

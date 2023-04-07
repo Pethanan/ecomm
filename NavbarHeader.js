@@ -61,7 +61,7 @@ const NavbarHeader = (props) => {
             </Nav>
             <Nav>
               <NavbarCartButton
-                cartShowHandler={props.cartShowHandler}
+                // cartShowHandler={props.cartShowHandler}
                 style={{ marginLeft: "500px" }}
               ></NavbarCartButton>
               {ctx.isLoggedIn ? (

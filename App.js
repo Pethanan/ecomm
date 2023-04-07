@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useContext, useState } from "react";
+import { useSelector } from "react-redux";
 import { Route, Redirect, Switch } from "react-router-dom";
 import ProductsStore from "./Components/Routes/ProductsStore";
 import AuthCtx from "./Store/auth-ctx";
@@ -11,19 +12,23 @@ const Home = lazy(() => import("./Components/Routes/Home"));
 const NavbarHeader = lazy(() => import("./Components/NavBar/NavbarHeader"));
 
 function App() {
-  const [cartShow, setCartShow] = useState(false);
+  // const [cartShow, setCartShow] = useState(false);
+
+  const showCart = useSelector((state) => state.showCart.showCart);
+
   const authCtx = useContext(AuthCtx);
-  const cartShowHandler = () => {
-    setCartShow(true);
-  };
-  const cartCloseHandler = () => {
-    setCartShow(false);
-  };
+  // const cartShowHandler = () => {
+  //   setCartShow(true);
+  // };
+  // const cartCloseHandler = () => {
+  //   setCartShow(false);
+  // };
 
   return (
     <>
-      <NavbarHeader cartShowHandler={cartShowHandler}></NavbarHeader>
-      {cartShow && <Cart onCartClose={cartCloseHandler} />}
+      {/* <NavbarHeader cartShowHandler={cartShowHandler}></NavbarHeader> */}
+      <NavbarHeader></NavbarHeader>
+      {showCart && <Cart />}
       <Switch>
         <Route path="/" exact>
           <Suspense fallback={() => <p>...loading...</p>}>

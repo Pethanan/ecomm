@@ -1,16 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialShowCartState = { showCart: false };
+const initialShowCartState = { showCart: false, notification: null };
 
 const showCartSlice = createSlice({
   name: "cart",
   initialState: initialShowCartState,
   reducers: {
-    showCart(state, action) {
+    showCart(state) {
       state.showCart = true;
     },
-    closeCart(state, action) {
+    closeCart(state) {
       state.showCart = false;
+    },
+    showNotification(state, action) {
+      state.notification = {
+        status: action.payload.status,
+        title: action.payload.title,
+        message: action.payload.message,
+      };
     },
   },
 });

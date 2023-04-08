@@ -5,7 +5,6 @@ function ProductsStore(props) {
   return (
     <React.Fragment>
       <ShoppingItemsList />
-      {/* <Button> Cart Items</Button> */}
     </React.Fragment>
   );
 }

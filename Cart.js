@@ -1,19 +1,21 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
-import { useContext } from "react";
+// import { useContext } from "react";
 import CartItem from "./CartItem";
-import CartCtx from "../../Store/cart-ctx";
-import { showcartActions } from "../../Store/showCart";
+// import CartCtx from "../../Store/cart-ctx";
+import { cartActions } from "../../Store/cart";
 
 const Cart = (props) => {
-  const cartCtx = useContext(CartCtx);
+  // const cartCtx = useContext(CartCtx);
   const dispatch = useDispatch();
+  const items = useSelector((state) => state.cart.items);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
-      {cartCtx.items.map((item) => (
+      {items.map((item) => (
         <CartItem
           item={item}
           key={item.id}
@@ -27,7 +29,7 @@ const Cart = (props) => {
   );
 
   const closeCartHandler = () => {
-    dispatch(showcartActions.closeCart());
+    dispatch(cartActions.closeCart());
   };
 
   return (
@@ -36,7 +38,7 @@ const Cart = (props) => {
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>$ {cartCtx.totalAmount}</span>
+        <span>$ {totalAmount}</span>
       </div>
       <div className={classes.actions}>
         <button className={classes["button--alt"]} onClick={closeCartHandler}>

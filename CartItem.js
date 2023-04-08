@@ -1,16 +1,20 @@
-import { useContext } from "react";
-import CartCtx from "../../Store/cart-ctx";
+// import { useContext } from "react";
+// import CartCtx from "../../Store/cart-ctx";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../Store/cart";
 import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
-  const cartCtx = useContext(CartCtx);
+  // const cartCtx = useContext(CartCtx);
+  const dispatch = useDispatch();
+
   const price = ` $ ${props.price.toFixed(2)}`;
 
   const removeFromCartHandler = () => {
-    cartCtx.removeFromCart(props.id);
+    dispatch(cartActions.removeItem(props.item));
   };
   const addToCartHandler = () => {
-    cartCtx.addToCart(props.item);
+    dispatch(cartActions.addItem(props.item));
   };
 
   return (

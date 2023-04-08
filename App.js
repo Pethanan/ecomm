@@ -14,7 +14,7 @@ const NavbarHeader = lazy(() => import("./Components/NavBar/NavbarHeader"));
 function App() {
   // const [cartShow, setCartShow] = useState(false);
 
-  const showCart = useSelector((state) => state.showCart.showCart);
+  const showCart = useSelector((state) => state.cart.showCart);
 
   const authCtx = useContext(AuthCtx);
   // const cartShowHandler = () => {
@@ -26,7 +26,6 @@ function App() {
 
   return (
     <>
-      {/* <NavbarHeader cartShowHandler={cartShowHandler}></NavbarHeader> */}
       <NavbarHeader></NavbarHeader>
       {showCart && <Cart />}
       <Switch>

@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
-import CartCtx from "../../Store/cart-ctx";
+import { useDispatch } from "react-redux";
+// import CartCtx from "../../Store/cart-ctx";
 import classes from "./AddToCartButton.module.css";
+import { cartActions } from "../../Store/cart";
 
 const AddToCartButton = (props) => {
-  const ctx = useContext(CartCtx);
+  // const ctx = useContext(CartCtx);
+
+  const dispatch = useDispatch();
   const addToCartHandler = () => {
-    ctx.addToCart(props.item);
-    console.log(props.item);
+    dispatch(cartActions.addItem(props.item));
   };
   return (
     <Button

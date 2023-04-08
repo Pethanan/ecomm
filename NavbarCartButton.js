@@ -2,11 +2,12 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../Store/cart";
+import { showCartActions } from "../../Store/showCart";
 
 const NavbarCartButton = (props) => {
   const dispatch = useDispatch();
   const showCartHandler = () => {
-    dispatch(cartActions.showCart());
+    dispatch(showCartActions.showCart());
   };
 
   return (

@@ -6,6 +6,7 @@ import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
 // import CartCtx from "../../Store/cart-ctx";
 import { cartActions } from "../../Store/cart";
+import { showCartActions } from "../../Store/showCart";
 
 const Cart = (props) => {
   // const cartCtx = useContext(CartCtx);
@@ -29,7 +30,7 @@ const Cart = (props) => {
   );
 
   const closeCartHandler = () => {
-    dispatch(cartActions.closeCart());
+    dispatch(showCartActions.closeCart());
   };
 
   return (
